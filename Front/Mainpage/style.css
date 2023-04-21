@@ -1,2 +1,63 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500&display=swap');
 
+
+:root {
+	--primary-color: #FF857C;
+	--secundary-color: #63B0FF;
+    --black-header: #252525;
+    --navbarheight: 60px;
+
+}
+
+
+ *{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+  }
+  /* ESTILOS DE NAVBAR */
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+  }
+  
+  .navbar-brand a {
+    text-decoration: none;
+  }
+  
+  .navbar-brand{
+    display: flex;
+  }
+
+
+  /* BOTON DE LOGIN */
+
+  .navbar-login {
+    display: flex;
+    align-items: center;
+  }
+  
+  .navbar-login-btn {
+    border: 2px solid #FF857C;
+    background-color: transparent;
+    border-radius: 11px;
+    color: var(--primary-color);
+    cursor: pointer;
+    font-size: 1.2rem;
+    margin-left: 1rem;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+/* AQUI ESTILOS DE VERSIÓN WEB */
+
+  @media (min-width: 768px) {
+    .navbar {
+      padding: 1rem 2rem;
+    }
+  
+
+  }
