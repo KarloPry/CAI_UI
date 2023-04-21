@@ -25,7 +25,9 @@ export default class World {
     }
 
     update() {
-
+        if(this.room) {
+            this.room.update();
+        }
     }
 
 }
