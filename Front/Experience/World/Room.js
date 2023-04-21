@@ -13,20 +13,19 @@ export default class Room {
     }
 
     setModel() {
-        this.actualRoom.rotation.y = Math.PI;
-
         this.actualRoom.children.forEach((child) => {
             child.castShadow = true;
             child.receiveShadow = true;
 
-            if(child instanceof THREE.Group) {
+            if (child instanceof THREE.Group) {
                 child.children.forEach((groupchild) => {
+                    console.log(groupchild.material);
                     groupchild.castShadow = true;
                     groupchild.receiveShadow = true;
-                })
+                });
             }
 
-            if (child.name === "AquaGlass") {
+            if (child.name === "Aqua") {
                 child.material = new THREE.MeshPhysicalMaterial();
                 child.material.roughness = 0;
                 child.material.color.set(0xffffff);
