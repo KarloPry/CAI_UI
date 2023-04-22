@@ -1,4 +1,4 @@
-import EventEmitter from "events";
+import { EventEmitter } from "events";
 
 export default class Time extends EventEmitter {
     constructor() {
@@ -17,8 +17,7 @@ export default class Time extends EventEmitter {
         this.current = currentTime;
         this.elapsed = this.current - this.start;
 
-        // console.log(this.delta);
         this.emit("update");
-        window.requestAnimationFrame(()=>this.update());
+        window.requestAnimationFrame(() => this.update());
     }
 }
