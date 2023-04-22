@@ -1,0 +1,215 @@
+@import url("reset.css");
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+:root {
+    --cuteorange: #FF8076;
+    --cuteblue: #63B0FF;
+    --darkgray: #454545;
+
+    --pinkgrandient: linear-gradient(91.2deg, #ff6257 45.94%, #F153FF 106.08%);
+}
+
+*{
+    font-family: 'Poppins', sans-serif;
+  }
+
+body {
+    min-height: 100vh;
+}
+
+#op1 {
+    color: var(--cuteorange);
+}
+
+#op2 {
+    color: var(--cuteblue);
+}
+
+.form-card-master {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Navbar */
+.navbar .nav-item,
+a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+    height: var(--navbarheight);
+}
+  
+.navbar .nav-item .nav-item-icon {
+    font-size: 2.5em;
+    color: var(--cuteorange);
+}
+  
+.navbar-brand{
+    display: flex;
+}
+
+/* Contenedor master */
+
+.form-card-container {
+    justify-content: center;
+    align-items: center;
+}
+
+h2{
+    color: var(--darkgray);
+    font-size: 1rem;
+    font-weight: 300;
+    font-style: normal;
+}
+
+/* Contenedor header */
+
+.form-card-header{
+    text-align: center;
+}
+
+.form-card-header .change {
+    text-align: end;
+}
+
+.form-card-container {
+    padding: 3rem;
+    position: relative;
+}
+
+/* Animacion del svg form*/
+
+.contractAnimate svg{
+    transition: transform 0.5s ease;
+}
+
+.contractAnimate svg:hover{
+    transform: scale(1.05);
+}
+
+.contractAnimate{
+    display: flex;
+    align-items: center;
+    margin: 4rem;
+}
+
+/* Form epico */
+
+.form-card{
+    display: flex;
+}
+
+h3 {
+    background-image: var(--pinkgrandient);
+    -webkit-background-clip: text;
+    color: transparent;
+    font-size: 1rem;
+    font-weight: 500;
+    font-style: normal;
+    margin-bottom: 0;
+}
+
+.button {
+    text-align: center;
+}
+
+.form-card-form .form-item {
+    position: relative;
+}
+
+.form-card-form .form-item .form-item-icon {
+    position: absolute;
+    top: .82rem;
+    left: 1.4rem;
+    font-size: 1.3rem;
+    opacity: .4;
+}
+
+.form-card-form .checkbox {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+.form-card-form .form-item-other {
+    margin: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: calc(1rem * .8);
+}
+
+/* ---------- */
+
+/* Login Card Form Elements */
+.form-card input[type="text"],
+.form-card input[type="number"],
+.form-card input[type="date"],
+.form-card input[type="email"],
+.form-card #frecuencyForm {
+    border: none;
+    outline: none;
+    background: #F2F2F2;
+    padding: 1rem 1rem;
+    width: 100%;
+    transition: background .5s;
+}
+
+.form-card input:focus,
+.form-card select:focus {
+    background: #dcdcdc;
+}
+
+.form-card input[type="number"] {
+    padding-left: calc(1rem * 3.5);
+}
+
+.form-card select {
+    appearance: none;
+}
+
+.form-card button {
+    background: black;
+    color: white;
+    padding: 1rem;
+    border-radius: 100px;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: background .5s;
+}
+
+.form-card button:hover {
+    background-color: rgba(0, 0, 0, 0.85);
+    cursor: pointer;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+
+    .form-card-master {
+        padding: 2rem 0;
+    }
+
+    .form-card{
+        display: block;
+    }
+
+    .contractAnimate {
+        display: block;
+        margin: 1.5rem;
+        text-align: center;
+    }
+
+    .form-card-container {
+        padding-top: .5rem;
+    }
+
+}
