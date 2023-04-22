@@ -57,13 +57,13 @@
         const select2 = document.getElementById("select2");
 
         select1.addEventListener("change", function() {
-        if (select1.value === "service1") {
+        if (select1.value === "Un servicio profesional") {
             select2.innerHTML = "<option value='servicio por honorarios'>servicio por honorarios</option><option value='servicios técnicos'>servicios técnicos</option><option value='servicio de consultoría'>servicio de consultoría</option><option value='servicio de diseño'>servicio de diseño</option>";
             select2.disabled = false;
-        } else if (select1.value === "service2") {
+        } else if (select1.value === "Realizar una obra o servicio") {
             select2.innerHTML = "<option value='obra'>obra</option><option value='servicios de ingeniería'>servicios de ingeniería</option><option value='servicios de consultoría de proyectos'>servicios de consultoría de proyectos</option><option value='servicios de mantenimiento de la obra'>servicios de mantenimiento de la obra</option>";
             select2.disabled = false;
-        }else if (select1.value === "service3") {
+        }else if (select1.value === "Arrendamiento") {
             select2.innerHTML = "<option value='arrendamiento de vivienda'>arrendamiento de vivienda</option><option value='arrendamiento de local comercial'>arrendamiento de local comercial</option><option value='arrendamiento de oficinas'>arrendamiento de oficinas</option><option value='arrendamiento de maquinaria'>arrendamiento de maquinaria</option>";
             select2.disabled = false;}
         else {
