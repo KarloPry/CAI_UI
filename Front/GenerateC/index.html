@@ -1,91 +1,171 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,600,0,0" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,600,0,0"
+    />
     <title>Contract</title>
-</head>
-<body>
+    <script defer>
+      const token = localStorage.getItem("token");
+      const uid = localStorage.getItem("userSession");
+      const p1 = localStorage.getItem("select1");
+      const p2 = localStorage.getItem("select2");
+      window.onload = () => {
+        const op1 = document.getElementById("op1");
+        const op2 = document.getElementById("op2");
+        op1.innerHTML = p1.toLowerCase();
+        op2.innerHTML = p2;
+      };
+
+      let responseContractor;
+      async function submitHandler(event) {
+        event.preventDefault(); // Add this line to prevent the page from reloading
+        const email = document.getElementById("emailForm");
+        if (email.value.length > 1) {
+          try {
+            responseContractor = await fetch(
+              `http://localhost:5000/api/users/contractor`,
+              {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                  Authorization: `Bearer ${token}`,
+                },
+                body: JSON.stringify({
+                  email: email,
+                }),
+              }
+            );
+          } catch (err) {
+            console.log(err);
+          }
+        }
+        const name = document.getElementById("userForm");
+        const clientName = document.getElementById("clientForm");
+        const desc = document.getElementById("descForm");
+        const dateFirst = document.getElementById("dateFormStart");
+        const dateLast = document.getElementById("dateForm");
+        const pay = document.getElementById("costForm");
+        const frecuencyPay = document.getElementById("frecuencyForm");
+        const prompt = `Genera un contrato que radique en méxico con todas sus normas legales sobre ${p1} para un ${p2}, esto será realizado por el individuo de nombre ${name.value}, con un contratista de nombre ${clientName.value} con fecha de inicio ${dateFirst.value} y de fin ${dateLast.value}, con una frecuencia ${frecuencyPay.value} de pagos de ${pay.value}, en este ${name.value} describe que realizara lo siguiente: ${desc}, permite un espacio para firmar al final del documento con guiones bajos, no debe de exceder una cuartilla.`;
+        const responseNewDoc = await fetch(
+          `http://localhost:5000/api/docs/${uid}/new`,
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${token}`,
+            },
+            body: JSON.stringify({
+              prompt: prompt,
+            }),
+          }
+        );
+      }
+    </script>
+  </head>
+  <body>
     <nav class="navbar">
-        <div class="navbar-brand">
-            <a href="#">
-                <img src="./assets/Logo.svg" alt="logo">
-            </a>
-        </div>
-        
-        <div class="form-item">
-            <a href="#">
-                <span class="form-item-icon material-symbols-rounded">logout</span>
-            </a>
-        </div>
+      <div class="navbar-brand">
+        <a href="#">
+          <img src="./assets/Logo.svg" alt="logo" />
+        </a>
+      </div>
+
+      <div class="form-item">
+        <a href="#">
+          <span class="form-item-icon material-symbols-rounded">logout</span>
+        </a>
+      </div>
     </nav>
 
     <div class="form-card-container">
-        <div class="form-card-header">
-            <div class="change">
-                <h2>Cambiar</h2>
-            </div>
-            <h1>Un contrato de <span id="op1"></span> para un <span id="op2"></span></h1>
+      <div class="form-card-header">
+        <div class="change">
+          <h2>Cambiar</h2>
         </div>
-        <div class="form-card">
-            <div class="form-card-visualize"></div>
-            <div class="form-card-content">
-                <h2>Necesitamos:</h2>
-                <form class="form-card-form">
-                    <div class="form-item">
-                        <h3>Tu nombre completo</h3>
-                        <input type="text" id="userForm" autofocus required>
-                    </div>
-                    <div class="form-item">
-                        <h3>Nombre de a quién le realizas el servicio</h3>
-                        <input type="text" id="clientForm" required>
-                    </div>
-                    <div class="form-item">
-                        <h3>De que <span id="op2"></span> es</h3>
-                        <input type="text" id="clientForm" required>
-                    </div>
-                    <div class="form-item">
-                        <h3>Fecha estimada de entrega (día, mes y año)</h3>
-                        <input type="date" id="dateForm" required>
-                    </div>
-                    <div class="form-item">
-                        <h3>Cuanto te pagarán por el proyecto</h3>
-                        <div class="form-special-item">
-                            <span class="form-item-icon material-symbols-rounded">attach_money</span>
-                            <input type="number" id="costForm" required>
-                        </div>
-                    </div>
-                    <div class="form-item">
-                        <h3>Frecuencia de pagos del cliente</h3>
-                        <select id="frecuencyForm" required>
-                            <option value="">Selecccione...</option>
-                            <option value="semanal">Semanal</option>
-                            <option value="quincenal">Quincenal</option>
-                            <option value="mensual">Mensual</option>
-                            <option value="hasta el cumplimiento de los requisitos">Hasta el cumplimiento de los requisitos</option>
-                        </select>
-                    </div>
-                    <div class="form-item">
-                        <h3>Correo del solicitante del servicio</h3>
-                        <input type="email" id="emailForm">
-                    </div>
-                    <div class="form-item-other">
-                        <div class="checkbox">
-                            <input type="checkbox" id="termsConditionsCheckbox">
-                            <label for="termsConditionsCheckbox">Acepto <a href="#">términos y condiciones</a></label>.
-                        </div>
-                        <div class="checkbox">
-                            <input type="checkbox" id="xFirmaCheckbox">
-                            <label for="termsConditionsCheckbox">Solicitar <a href="#">X.Firma</a> con notario digital</label>.
-                        </div>
-                    </div>
-                    <button type="submit">Generar documento</button>
-                </form>
+        <h1>
+          Un contrato de <span id="op1"></span> para un <span id="op2"></span>
+        </h1>
+      </div>
+      <div class="form-card">
+        <div class="form-card-visualize"></div>
+        <div class="form-card-content">
+          <h2>Necesitamos:</h2>
+          <form class="form-card-form">
+            <div class="form-item">
+              <h3>Tu nombre completo</h3>
+              <input type="text" id="userForm" autofocus required />
             </div>
+            <div class="form-item">
+              <h3>Nombre de a quién le realizas el servicio</h3>
+              <input type="text" id="clientForm" required />
+            </div>
+            <div class="form-item">
+              <h3>
+                Describe el servicio a realizar y los requerimientos de su
+                entrega
+              </h3>
+              <input type="text" id="descForm" required />
+            </div>
+            <div class="form-item">
+              <h3>Fecha de inicio (día, mes y año)</h3>
+              <input type="date" id="dateFormStart" required />
+            </div>
+            <div class="form-item">
+              <h3>Fecha estimada de entrega (día, mes y año)</h3>
+              <input type="date" id="dateForm" required />
+            </div>
+            <div class="form-item">
+              <h3>Cuanto te pagarán por el proyecto</h3>
+              <div class="form-special-item">
+                <span class="form-item-icon material-symbols-rounded"
+                  >attach_money</span
+                >
+                <input type="number" id="costForm" required />
+              </div>
+            </div>
+            <div class="form-item">
+              <h3>Frecuencia de pagos del cliente</h3>
+              <select id="frecuencyForm" required>
+                <option value="">Selecccione...</option>
+                <option value="semanal">Semanal</option>
+                <option value="quincenal">Quincenal</option>
+                <option value="mensual">Mensual</option>
+                <option value="hasta el cumplimiento de los requisitos">
+                  Hasta el cumplimiento de los requisitos
+                </option>
+              </select>
+            </div>
+            <div class="form-item">
+              <h3>Correo del solicitante del servicio</h3>
+              <input type="email" id="emailForm" />
+            </div>
+            <div class="form-item-other">
+              <div class="checkbox">
+                <input type="checkbox" id="termsConditionsCheckbox" />
+                <label for="termsConditionsCheckbox"
+                  >Acepto <a href="#">términos y condiciones</a></label
+                >.
+              </div>
+              <div class="checkbox">
+                <input type="checkbox" id="xFirmaCheckbox" />
+                <label for="termsConditionsCheckbox"
+                  >Solicitar <a href="#">X.Firma</a> con notario digital</label
+                >.
+              </div>
+            </div>
+            <button type="submit" onsubmit="submitHandler(event)">
+              Generar documento
+            </button>
+          </form>
         </div>
+      </div>
     </div>
-</body>
+  </body>
 </html>
