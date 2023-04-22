@@ -78,6 +78,7 @@ html, body{
   border: none;
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
   color: white;
+  font-family: 'Poppins';
 }
 
 /* .register-button{
@@ -226,15 +227,18 @@ html, body{
 
 .hero-main-title{
   font-size: 64px;
+  color: white;
 }
 
 .hero-main-description{
   font-size: 32px;
+  color: white;
 }
 
 .hero-second-subheading{
   font-size: 32px;
   text-transform: uppercase;
+  color: white;
 }
 
 span {

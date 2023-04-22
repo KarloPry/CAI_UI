@@ -48,6 +48,24 @@ export default class Room {
           map: this.resources.items.screen,
         });
       }
+
+      if (child.name === "Mini_Floor") {
+        child.position.x = 13.8631;
+        child.position.z = 1.59145;
+      }
+
+      if (
+        child.name === "Mailbox" ||
+        child.name === "Lamp" ||
+        child.name === "FloorFirst" ||
+        child.name === "FloorSecond" ||
+        child.name === "FloorThird" ||
+        child.name === "Dirt" ||
+        child.name === "Flower1" ||
+        child.name === "Flower2"
+      ) {
+        child.scale.set(0, 0, 0);
+      }
     });
 
     this.scene.add(this.actualRoom);
