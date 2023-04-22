@@ -29,10 +29,11 @@
                     password: password,
                 })
             });
-            console.log(response.data);
-            // if(response.ok){
-            //     localStorage.setItem('token': response)
-            // }
+            let data = await response.json()
+            if(response.ok){
+                localStorage.setItem('token', data.data);
+                localStorage.setItem('userSession', data.user);
+            }
         }
     </script>
 </head>

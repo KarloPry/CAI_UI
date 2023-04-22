@@ -41,8 +41,11 @@
               }),
             }
           );
-          console.log(response);
-          // handle the response here
+          let data = await response.json()
+            if(response.ok){
+                localStorage.setItem('token', data.data);
+                localStorage.setItem('userSession', data.user);
+            }
         } catch (error) {
           console.error(error);
           // handle the error here
