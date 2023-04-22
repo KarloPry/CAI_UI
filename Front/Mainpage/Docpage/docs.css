@@ -276,7 +276,9 @@ form button{
         height: 80px;
     }
     .content{
-        margin-left: 10vw;
+        margin-left: 0vw;
+        width: 100vw;
+        align-items: center;
     }
 
     .content2{
@@ -312,13 +314,20 @@ form button{
 
     form button{
         font-size: 22px;
-        padding: 0.5rem 1rem;
-        text-decoration: none;
-        font-weight: 500;
         width: 300px;
-        color: white;
         height: fit-content;
+        position: relative;
         
     }
+    .editButtonHeader{
+        width: 48%;
+    }
+
+    .content .editButtonHeader a{
+        font-size: 23px;
+        
+    }
+
+
 
   }
