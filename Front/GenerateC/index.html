@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,600,0,0" />
+    <title>Contract</title>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-brand">
+            <a href="#">
+                <img src="./assets/Logo.svg" alt="logo">
+            </a>
+        </div>
+        
+        <div class="form-item">
+            <a href="#">
+                <span class="form-item-icon material-symbols-rounded">logout</span>
+            </a>
+        </div>
+    </nav>
+
+    <div class="form-card-container">
+        <div class="form-card-header">
+            <div class="change">
+                <h2>Cambiar</h2>
+            </div>
+            <h1>Un contrato de <span id="op1"></span> para un <span id="op2"></span></h1>
+        </div>
+        <div class="form-card">
+            <div class="form-card-visualize"></div>
+            <div class="form-card-content">
+                <h2>Necesitamos:</h2>
+                <form class="form-card-form">
+                    <div class="form-item">
+                        <h3>Tu nombre completo</h3>
+                        <input type="text" id="userForm" autofocus required>
+                    </div>
+                    <div class="form-item">
+                        <h3>Nombre de a quién le realizas el servicio</h3>
+                        <input type="text" id="clientForm" required>
+                    </div>
+                    <div class="form-item">
+                        <h3>De que <span id="op2"></span> es</h3>
+                        <input type="text" id="clientForm" required>
+                    </div>
+                    <div class="form-item">
+                        <h3>Fecha estimada de entrega (día, mes y año)</h3>
+                        <input type="date" id="dateForm" required>
+                    </div>
+                    <div class="form-item">
+                        <h3>Cuanto te pagarán por el proyecto</h3>
+                        <div class="form-special-item">
+                            <span class="form-item-icon material-symbols-rounded">attach_money</span>
+                            <input type="number" id="costForm" required>
+                        </div>
+                    </div>
+                    <div class="form-item">
+                        <h3>Frecuencia de pagos del cliente</h3>
+                        <select id="frecuencyForm" required>
+                            <option value="">Selecccione...</option>
+                            <option value="semanal">Semanal</option>
+                            <option value="quincenal">Quincenal</option>
+                            <option value="mensual">Mensual</option>
+                            <option value="hasta el cumplimiento de los requisitos">Hasta el cumplimiento de los requisitos</option>
+                        </select>
+                    </div>
+                    <div class="form-item">
+                        <h3>Correo del solicitante del servicio</h3>
+                        <input type="email" id="emailForm">
+                    </div>
+                    <div class="form-item-other">
+                        <div class="checkbox">
+                            <input type="checkbox" id="termsConditionsCheckbox">
+                            <label for="termsConditionsCheckbox">Acepto <a href="#">términos y condiciones</a></label>.
+                        </div>
+                        <div class="checkbox">
+                            <input type="checkbox" id="xFirmaCheckbox">
+                            <label for="termsConditionsCheckbox">Solicitar <a href="#">X.Firma</a> con notario digital</label>.
+                        </div>
+                    </div>
+                    <button type="submit">Generar documento</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
