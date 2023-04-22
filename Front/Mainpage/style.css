@@ -5,7 +5,13 @@
 	--primary-color: #FF857C;
 	--secundary-color: #63B0FF;
     --black-header: #252525;
-    --navbarheight: 60px;
+    --navbarheight: 90px;
+    --pinkgrandient: linear-gradient(91.2deg, #FF8076 45.94%, #F153FF 106.08%);
+
+
+    --background-gradient: linear-gradient(30deg, #f39c12 30%, #f1c40f);
+    --gray: #34495e;
+    --darkgray: #2c3e50;
 
 }
 
@@ -16,11 +22,21 @@
     padding: 0;
     font-family: 'Poppins', sans-serif;
   }
+
+  h1{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 28px;
+  }
+
+
   /* ESTILOS DE NAVBAR */
   .navbar {
     display: flex;
     justify-content: space-between;
     padding: 1rem;
+    height: var(--navbarheight);
   }
   
   .navbar-brand a {
@@ -51,6 +67,157 @@
     text-decoration: none;
     font-weight: 500;
   }
+
+  #Home{
+    position: absolute;
+    top: var(--navbarheight);
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: calc(100vh - var(--navbarheight));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+  }
+
+/* MAIN INPUT */
+
+.Maininput{
+    border: solid 2px;
+    border-image: linear-gradient(91.2deg, #FF8076 45.94%, #F153FF 106.08%) 1;
+    border-image-slice: 1;
+    display: flex;
+    align-items: center;
+    width: 90vw;
+    height: 50px;
+    justify-content: flex-start;
+    background-color: white;
+    font-size: small;
+}
+/* Estilos de parrafos dinamicos */
+
+.content{
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    align-items: flex-start;
+    padding: 0vw 5vw;
+    margin-bottom: 20px;
+}
+
+.renglon{
+    display: flex;
+    flex-direction: row;
+    padding: 0px;
+    margin: 0px;
+}
+
+.renglon h1:nth-child(2){
+    margin-left: 6px;
+}
+
+.AnimatedTitle1{
+    color: var(--primary-color);
+    animation: cambio-texto 3s linear;
+}
+
+@keyframes cambio-texto {
+    0% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+      content: "Queso";
+    }
+  }
+
+.AnimatedTitle2{
+    color: var(--secundary-color);
+}
+
+
+
+/* SELECTORESSSSS */
+.Maininput select:first-child{
+    margin-left: 20px;
+}
+
+.Maininput .selectors option{
+    background-color: white;
+}
+
+.Maininput .selectors select{
+    appearance: none;
+    outline: 0;
+    border: 0;
+    box-shadow: none;
+    flex: 1;
+    padding: 0 1em;
+    color: var(--black-header);
+    background-color: transparent;
+    background-image: none;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.Maininput .selectors select::-ms-expand {
+    display: none;
+}
+
+.Maininput .selectors{
+position: relative;
+  display: flex;
+  width: 20em;
+  height: 3em;
+  border-radius: .25em;
+  overflow: hidden;
+
+}
+
+.Maininput .selectors::after {
+    content: '\25BC';
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 1em;
+    background-color: transparent;
+    transition: .25s all ease;
+    pointer-events: none;
+  }
+.Maininput .selectors:hover::after {
+    color: var(--primary-color);
+}
+  
+
+form button{
+    background: var(--pinkgrandient);
+    border-radius: 3px;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    font-weight: 500;
+    width: 90vw;
+    color: white;
+    
+}
+
+.FormiGigantImput{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100vw;
+    height: fit-content;
+    gap: 10px;
+
+}
+
 
 /* AQUI ESTILOS DE VERSIÓN WEB */
 
