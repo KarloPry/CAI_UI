@@ -25,8 +25,8 @@
 
     <section id="Home" class="Home">
         <div class="content">
-            <div class="renglon"><h1>Un contrato de</h1><h1 class="AnimatedTitle1" id="Anim1">Freelance</h1></div>
-            <div class="renglon"><h1>para un</h1><h1 class="AnimatedTitle2">Software</h1></div>
+            <div class="renglon"><h1>Un contrato de</h1><h1 class="AnimatedTitle1" id="Anim1">_________</h1></div>
+            <div class="renglon"><h1>para un</h1><h1 class="AnimatedTitle2" id="Anim2">_________</h1></div>
         </div>
         
         <form class="FormiGigantImput" action="" id="InputForm">
@@ -57,7 +57,9 @@
         const select2 = document.getElementById("select2");
 
         select1.addEventListener("change", function() {
+            document.getElementById('Anim1').innerHTML = select1.value.toLowerCase();
         if (select1.value === "Un servicio profesional") {
+            document.getElementById('Anim1').innerHTML = select1.value.toLowerCase();
             select2.innerHTML = "<option value='servicio por honorarios'>servicio por honorarios</option><option value='servicios técnicos'>servicios técnicos</option><option value='servicio de consultoría'>servicio de consultoría</option><option value='servicio de diseño'>servicio de diseño</option>";
             select2.disabled = false;
         } else if (select1.value === "Realizar una obra o servicio") {
@@ -72,16 +74,9 @@
         }
         });
 
-        //AQUI REMPLAZA EL H1 POR LOS SELECS
-
-
-
-
-        
-
-
-
-
+        select2.addEventListener("change", function() {
+            document.getElementById('Anim2').innerHTML = select2.value.toLowerCase();
+        })
 
         //GUARDAR DATOS DEL SUBMIT EN LOCAL STORAGE
         const form = document.getElementById('InputForm');
