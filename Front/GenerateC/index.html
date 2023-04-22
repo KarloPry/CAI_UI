@@ -23,8 +23,7 @@
       };
 
       let responseContractor;
-      async function submitHandler(event) {
-        event.preventDefault(); // Add this line to prevent the page from reloading
+      async function submitHandler() { // Add this line to prevent the page from reloading
         const email = document.getElementById("emailForm");
         if (email.value.length > 1) {
           try {
@@ -45,6 +44,7 @@
             console.log(err);
           }
         }
+        let signeremail = null;
         const name = document.getElementById("userForm");
         const clientName = document.getElementById("clientForm");
         const desc = document.getElementById("descForm");
@@ -52,7 +52,7 @@
         const dateLast = document.getElementById("dateForm");
         const pay = document.getElementById("costForm");
         const frecuencyPay = document.getElementById("frecuencyForm");
-        const prompt = `Genera un contrato que radique en méxico con todas sus normas legales sobre ${p1} para un ${p2}, esto será realizado por el individuo de nombre ${name.value}, con un contratista de nombre ${clientName.value} con fecha de inicio ${dateFirst.value} y de fin ${dateLast.value}, con una frecuencia ${frecuencyPay.value} de pagos de ${pay.value}, en este ${name.value} describe que realizara lo siguiente: ${desc}, permite un espacio para firmar al final del documento con guiones bajos, no debe de exceder una cuartilla.`;
+        const prompt = `Genera un contrato que radique en méxico con todas sus normas legales sobre ${p1} para un ${p2}, esto será realizado por el individuo de nombre ${name.value}, con un contratista de nombre ${clientName.value} con fecha de inicio ${dateFirst.value} y de fin ${dateLast.value}, con una frecuencia ${frecuencyPay.value} de pagos de ${pay.value}, en este ${name.value} describe que realizara lo siguiente: ${desc.value}, permite un espacio para firmar al final del documento con guiones bajos, no debe de exceder una cuartilla. No mencionar el estado de México en el que se encuentran.`;
         const responseNewDoc = await fetch(
           `http://localhost:5000/api/docs/${uid}/new`,
           {
@@ -160,7 +160,7 @@
                 >.
               </div>
             </div>
-            <button type="submit" onsubmit="submitHandler(event)">
+            <button type="button" onclick=submitHandler()>
               Generar documento
             </button>
           </form>
