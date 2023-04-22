@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inteligent Contracts</title>
     <link rel="stylesheet" href="./style.css">
-    <script src="./index.js"></script>
 </head>
 <body>
+    
     <nav class="navbar">
         <div class="navbar-brand">
             <a href="#"><svg width="179" height="44" viewBox="0 0 179 44" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -25,13 +25,12 @@
 
     <section id="Home" class="Home">
         <div class="content">
-            <div class="renglon"><h1>Un contrato de</h1><h1 class="AnimatedTitle1">Freelance</h1></div>
+            <div class="renglon"><h1>Un contrato de</h1><h1 class="AnimatedTitle1" id="Anim1">Freelance</h1></div>
             <div class="renglon"><h1>para un</h1><h1 class="AnimatedTitle2">Software</h1></div>
         </div>
         
         <form class="FormiGigantImput" action="">
             <div class="Maininput">
-                 
                 <div class="selectors">
                     <select id="tipo" name="tipo">
                         <option value="">Un contrato para</option>
@@ -55,6 +54,30 @@
         </form>
 
     </section>
-      
+    <script>
+        
+        
+        const palabras = ["Palabra1", "Palabra2", "Palabra3", "Palabra4", "Palabra5"];
+        let contadorPalabra = 0;
+
+        const AnimatedTitle1 = document.getElementById("Anim1");
+        const ContenidoTitulo = AnimatedTitle1.textContent;
+
+        console.log(ContenidoTitulo)
+
+        const escribirTexto = (AnimatedTitle1) => {
+
+        }
+
+        AnimatedTitle1.addEventListener("animationend", () => {
+        contadorPalabra++;
+        if (contadorPalabra >= palabras.length) {
+            contadorPalabra = 0;
+            
+        }
+        AnimatedTitle1.textContent = palabras[contadorPalabra];
+        });
+        console.log("Hola mundo")
+    </script>
 </body>
 </html>

@@ -120,21 +120,8 @@
 
 .AnimatedTitle1{
     color: var(--primary-color);
-    animation: cambio-texto 3s linear;
+    
 }
-
-@keyframes cambio-texto {
-    0% {
-      opacity: 1;
-    }
-    50% {
-      opacity: 0;
-    }
-    100% {
-      opacity: 1;
-      content: "Queso";
-    }
-  }
 
 .AnimatedTitle2{
     color: var(--secundary-color);
@@ -163,6 +150,7 @@
     background-image: none;
     cursor: pointer;
     font-weight: 600;
+    font-size: 15px;
 }
 
 .Maininput .selectors select::-ms-expand {
@@ -205,10 +193,12 @@ form button{
     font-weight: 500;
     width: 90vw;
     color: white;
+    align-items: center;
+    justify-content: center;
     
 }
-
 .FormiGigantImput{
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -225,6 +215,38 @@ form button{
     .navbar {
       padding: 1rem 2rem;
     }
-  
+
+    h1{
+        font-size: 40px;
+    }
+    form{
+        position: relative;
+        display: inline-block;
+        justify-content: center;
+        align-items: center;
+    }
+
+    form button{
+        width: auto;
+        height: 38px;
+        border-radius: 4px;
+        position: absolute;
+        right: 8%;
+
+        transform: translateX(-40%);
+
+    }
+
+    .Maininput{
+        width: 80vw;
+        height: 80px;
+    }
+    .content{
+        margin-left: 10vw;
+    }
+    .Maininput .selectors select{
+        font-size: 20px;
+    }
+
 
   }
