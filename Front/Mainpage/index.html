@@ -29,18 +29,18 @@
             <div class="renglon"><h1>para un</h1><h1 class="AnimatedTitle2">Software</h1></div>
         </div>
         
-        <form class="FormiGigantImput" action="">
+        <form class="FormiGigantImput" action="" id="InputForm">
             <div class="Maininput">
                 <div class="selectors">
-                    <select id="tipo" name="tipo" required>
+                    <select id="select1" name="tipo" required>
                         <option value="">Un contrato para</option>
-                        <option value="tipo1">Tipo 1</option>
-                        <option value="tipo2">Tipo 2</option>
-                        <option value="tipo3">Tipo 3</option>
+                        <option value="service1">Un servicio profesional</option>
+                        <option value="service2">Realizar una obra o servicio</option>
+                        <option value="service3">Arrendamiento</option>
                     </select>
                 </div>
                 <div class="selectors">
-                    <select id="tipo" name="tipo" required>
+                    <select id="select2" name="tipo" required>
                         <option value="">De tipo</option>
                         <option value="tipo1">Tipo 1</option>
                         <option value="tipo2">Tipo 2</option>
@@ -55,29 +55,46 @@
 
     </section>
     <script>
-        
-        
-        const palabras = ["Palabra1", "Palabra2", "Palabra3", "Palabra4", "Palabra5"];
-        let contadorPalabra = 0;
+        //SCRIPT PARA LOS SELECTORS
+        const select1 = document.getElementById("select1");
+        const select2 = document.getElementById("select2");
 
-        const AnimatedTitle1 = document.getElementById("Anim1");
-        const ContenidoTitulo = AnimatedTitle1.textContent;
-
-        console.log(ContenidoTitulo)
-
-        const escribirTexto = (AnimatedTitle1) => {
-
+        select1.addEventListener("change", function() {
+        if (select1.value === "service1") {
+            select2.innerHTML = "<option value='type1'>servicio por honorarios</option><option value='type2'>servicios técnicos</option><option value='type3'>servicio de consultoría</option><option value='type4'>servicio de diseño</option>";
+            select2.disabled = false;
+        } else if (select1.value === "service2") {
+            select2.innerHTML = "<option value='type5'>obra</option><option value='type6'>servicios de ingeniería</option><option value='type7'>servicios de consultoría de proyectos</option><option value='type8'>servicios de mantenimiento de la obra</option>";
+            select2.disabled = false;
+        }else if (select1.value === "service3") {
+            select2.innerHTML = "<option value='type9'>arrendamiento de vivienda</option><option value='type10'>arrendamiento de local comercial</option><option value='type11'>arrendamiento de oficinas</option><option value='type12'>arrendamiento de maquinaria</option>";
+            select2.disabled = false;}
+        else {
+            select2.innerHTML = "<option value=''>Seleccionar opción</option>";
+            select2.disabled = true;
         }
-
-        AnimatedTitle1.addEventListener("animationend", () => {
-        contadorPalabra++;
-        if (contadorPalabra >= palabras.length) {
-            contadorPalabra = 0;
-            
-        }
-        AnimatedTitle1.textContent = palabras[contadorPalabra];
         });
-        console.log("Hola mundo")
+
+
+        //GUARDAR DATOS DEL SUBMIT EN LOCAL STORAGE
+        const form = document.getElementById('InputForm');
+
+        // Agrega un controlador de eventos para el envío del formulario
+
+        form.addEventListener('submit', function(event) {
+        // Evita que el formulario se envíe automáticamente
+        event.preventDefault();
+
+        // Obtén el valor del campo de entrada del formulario
+        const valor = document.getElementById('mi-input').value;
+
+        // Guarda el valor en el almacenamiento local
+        localStorage.setItem('mi-valor', valor);
+
+        // Muestra un mensaje para confirmar que el valor ha sido guardado
+        alert('¡Valor guardado en el almacenamiento local!');
+    
+        });
     </script>
 </body>
 </html>
